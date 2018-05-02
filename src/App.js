@@ -4,11 +4,7 @@ import firebase from 'firebase';
 import {Header, Button, Spinner} from './Components/Common';
 import LoginForm from './Components/LoginForm';
 
-class App extends Component {
-  state= { loggedIn: null }
-
-  componentWillMount() {
-    firebase.initializeApp({
+firebase.initializeApp({
         apiKey: 'AIzaSyAh4C7nlrT9o4EMaIApEH749j_xoKh16g0',
         authDomain: 'authentication-82409.firebaseapp.com',
         databaseURL: 'https://authentication-82409.firebaseio.com' ,
@@ -16,6 +12,12 @@ class App extends Component {
         storageBucket: 'authentication-82409.appspot.com',
         messagingSenderId: '1006267421309'
     });
+
+class App extends Component {
+  state= { loggedIn: null }
+
+  componentWillMount() {
+    
 
     firebase.auth().onAuthStateChanged ((user) => {
         
